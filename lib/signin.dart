@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:signup_app/components/inputfield.dart';
 import 'package:signup_app/progressindicator.dart';
 
 class SignInForm extends StatefulWidget {
@@ -46,40 +47,8 @@ class _SignInFormState extends State<SignInForm> {
         children: [
           AnimatedProgressIndicator(value: _formProgress),
           Text('Sign In', style: Theme.of(context).textTheme.headline4),
-          Padding(
-            padding: EdgeInsets.all(8.0),
-            child: TextFormField(
-              validator: (value) {
-                if (value.isEmpty) {
-                  return 'Please enter some text';
-                }
-                return null;
-              },
-              controller: _usernameTextController,
-              decoration: InputDecoration(
-                hintText: 'Username',
-              ),
-            ),
-          ),
-          /* Padding(
-            padding: EdgeInsets.all(8.0),
-            child: TextFormField(
-              controller: _lastNameTextController,
-              decoration: InputDecoration(
-                hintText: 'Last name',
-              ),
-            ),
-          ), */
-          Padding(
-            padding: EdgeInsets.all(8.0),
-            child: TextFormField(
-              obscureText: true,
-              controller: _passwordTextController,
-              decoration: InputDecoration(
-                hintText: 'password',
-              ),
-            ),
-          ),
+          inputfield(_usernameTextController, 'User Name'),
+          inputfield(_passwordTextController, 'Password'),
           TextButton(
             style: ButtonStyle(
               foregroundColor:

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:signup_app/main.dart';
 import 'package:signup_app/progressindicator.dart';
+
+import 'components/inputfield.dart';
 
 class UserDetailsScreen extends StatelessWidget {
   @override
@@ -65,81 +66,11 @@ class _UserDetailsState extends State<UserDetails> {
         children: [
           AnimatedProgressIndicator(value: _formProgress),
           Text('User Details', style: Theme.of(context).textTheme.headline4),
-          Padding(
-            padding: EdgeInsets.all(8.0),
-            child: TextFormField(
-              validator: (value) {
-                if (value.isEmpty) {
-                  return 'Please enter some text';
-                }
-                return null;
-              },
-              controller: _firstnameTextController,
-              decoration: InputDecoration(
-                hintText: 'Firstname',
-              ),
-            ),
-          ),
-          Padding(
-            padding: EdgeInsets.all(8.0),
-            child: TextFormField(
-              validator: (value) {
-                if (value.isEmpty) {
-                  return 'Please enter some text';
-                }
-                return null;
-              },
-              controller: _lastnameTextController,
-              decoration: InputDecoration(
-                hintText: 'Lastname',
-              ),
-            ),
-          ),
-          Padding(
-            padding: EdgeInsets.all(8.0),
-            child: TextFormField(
-              validator: (value) {
-                if (value.isEmpty) {
-                  return 'Please enter some text';
-                }
-                return null;
-              },
-              controller: _emailTextController,
-              decoration: InputDecoration(
-                hintText: 'Email id',
-              ),
-            ),
-          ),
-          Padding(
-            padding: EdgeInsets.all(8.0),
-            child: TextFormField(
-              validator: (value) {
-                if (value.isEmpty) {
-                  return 'Please enter some text';
-                }
-                return null;
-              },
-              controller: _dobTextController,
-              decoration: InputDecoration(
-                hintText: 'Date of Birth',
-              ),
-            ),
-          ),
-          Padding(
-            padding: EdgeInsets.all(8.0),
-            child: TextFormField(
-              validator: (value) {
-                if (value.isEmpty) {
-                  return 'Please enter some text';
-                }
-                return null;
-              },
-              controller: _deptTextController,
-              decoration: InputDecoration(
-                hintText: 'Department',
-              ),
-            ),
-          ),
+          inputfield(_firstnameTextController, 'First Name'),
+          inputfield(_lastnameTextController, 'Last Name'),
+          inputfield(_emailTextController, 'Email ID'),
+          inputfield(_dobTextController, 'DOB'),
+          inputfield(_deptTextController, 'Department'),
           TextButton(
             style: ButtonStyle(
               foregroundColor:
