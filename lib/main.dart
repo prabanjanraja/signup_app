@@ -50,8 +50,7 @@ class SignUpForm extends StatefulWidget {
 class _SignUpFormState extends State<SignUpForm> {
   final _formKey = GlobalKey<FormState>();
 
-  final _firstNameTextController = TextEditingController();
-  final _lastNameTextController = TextEditingController();
+  final _passwordTextController = TextEditingController();
   final _usernameTextController = TextEditingController();
 
   double _formProgress = 0;
@@ -59,9 +58,8 @@ class _SignUpFormState extends State<SignUpForm> {
   void updateformProgress() {
     var progress = 0.0;
     var controllers = [
-      _firstNameTextController,
-      _lastNameTextController,
       _usernameTextController,
+      _passwordTextController,
     ];
 
     for (var controller in controllers) {
@@ -98,13 +96,13 @@ class _SignUpFormState extends State<SignUpForm> {
                 }
                 return null;
               },
-              controller: _firstNameTextController,
+              controller: _usernameTextController,
               decoration: InputDecoration(
-                hintText: 'First name',
+                hintText: 'Username',
               ),
             ),
           ),
-          Padding(
+          /* Padding(
             padding: EdgeInsets.all(8.0),
             child: TextFormField(
               controller: _lastNameTextController,
@@ -112,13 +110,14 @@ class _SignUpFormState extends State<SignUpForm> {
                 hintText: 'Last name',
               ),
             ),
-          ),
+          ), */
           Padding(
             padding: EdgeInsets.all(8.0),
             child: TextFormField(
-              controller: _usernameTextController,
+              obscureText: true,
+              controller: _passwordTextController,
               decoration: InputDecoration(
-                hintText: 'Username',
+                hintText: 'password',
               ),
             ),
           ),
