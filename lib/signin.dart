@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:signup_app/components/custombutton.dart';
 import 'package:signup_app/components/inputfield.dart';
 import 'package:signup_app/progressindicator.dart';
 
@@ -33,7 +34,7 @@ class _SignInFormState extends State<SignInForm> {
     });
   }
 
-  void _showWelcomeScreen() {
+  void _showHomeScreen() {
     Navigator.of(context).pushNamed('/welcome');
   }
 
@@ -47,26 +48,9 @@ class _SignInFormState extends State<SignInForm> {
         children: [
           AnimatedProgressIndicator(value: _formProgress),
           Text('Sign In', style: Theme.of(context).textTheme.headline4),
-          inputfield(_usernameTextController, 'User Name'),
-          inputfield(_passwordTextController, 'Password'),
-          TextButton(
-            style: ButtonStyle(
-              foregroundColor:
-                  MaterialStateColor.resolveWith((Set<MaterialState> states) {
-                return states.contains(MaterialState.disabled)
-                    ? null
-                    : Colors.white;
-              }),
-              backgroundColor:
-                  MaterialStateColor.resolveWith((Set<MaterialState> states) {
-                return states.contains(MaterialState.disabled)
-                    ? null
-                    : Colors.blue;
-              }),
-            ),
-            onPressed: _formProgress == 1 ? _showWelcomeScreen : null,
-            child: Text('Sign In'),
-          ),
+          textInputField(_usernameTextController, 'User Name'),
+          textInputField(_passwordTextController, 'Password', password: true),
+          customButton('Sign In', _formProgress, _showHomeScreen),
         ],
       ),
     );

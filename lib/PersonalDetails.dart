@@ -1,24 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:signup_app/components/custombutton.dart';
 import 'package:signup_app/progressindicator.dart';
 
 import 'components/inputfield.dart';
-
-class UserDetailsScreen extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: Colors.grey[200],
-      body: Center(
-        child: SizedBox(
-          width: 400,
-          child: Card(
-            child: UserDetails(),
-          ),
-        ),
-      ),
-    );
-  }
-}
 
 class UserDetails extends StatefulWidget {
   @override
@@ -56,6 +40,8 @@ class _UserDetailsState extends State<UserDetails> {
     });
   }
 
+  void updateDB() {}
+
   @override
   Widget build(BuildContext context) {
     return Form(
@@ -66,29 +52,12 @@ class _UserDetailsState extends State<UserDetails> {
         children: [
           AnimatedProgressIndicator(value: _formProgress),
           Text('User Details', style: Theme.of(context).textTheme.headline4),
-          inputfield(_firstnameTextController, 'First Name'),
-          inputfield(_lastnameTextController, 'Last Name'),
-          inputfield(_emailTextController, 'Email ID'),
-          inputfield(_dobTextController, 'DOB'),
-          inputfield(_deptTextController, 'Department'),
-          TextButton(
-            style: ButtonStyle(
-              foregroundColor:
-                  MaterialStateColor.resolveWith((Set<MaterialState> states) {
-                return states.contains(MaterialState.disabled)
-                    ? null
-                    : Colors.white;
-              }),
-              backgroundColor:
-                  MaterialStateColor.resolveWith((Set<MaterialState> states) {
-                return states.contains(MaterialState.disabled)
-                    ? null
-                    : Colors.blue;
-              }),
-            ),
-            //  onPressed: _formProgress == 1 ?  : null,
-            child: Text('Update'),
-          ),
+          textInputField(_firstnameTextController, 'First Name'),
+          textInputField(_lastnameTextController, 'Last Name'),
+          textInputField(_emailTextController, 'Email ID'),
+          textInputField(_dobTextController, 'DOB'),
+          textInputField(_deptTextController, 'Department'),
+          customButton('update', _formProgress, updateDB),
         ],
       ),
     );

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:signup_app/LoginPage.dart';
+import 'package:signup_app/HomePage.dart';
+import 'package:signup_app/PersonalDetails.dart';
 import 'package:signup_app/signin.dart';
 
 void main() => runApp(SignUpApp());
@@ -10,7 +11,7 @@ class SignUpApp extends StatelessWidget {
     return MaterialApp(
       routes: {
         '/': (context) => SignUpScreen(),
-        '/welcome': (context) => UserDetailsScreen(),
+        '/welcome': (context) => HomePage(),
       },
     );
   }
