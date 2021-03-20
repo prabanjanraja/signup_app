@@ -10,7 +10,7 @@ class SignUpApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       routes: {
-        '/': (context) => DynamicScreen(),
+        '/': (context) => SignUpScreen(),
         '/welcome': (context) => HomePage(),
       },
     );
