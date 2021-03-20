@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:signup_app/HomePage.dart';
-import 'package:signup_app/PersonalDetails.dart';
+import 'package:signup_app/other%20details.dart';
 import 'package:signup_app/signin.dart';
 
 void main() => runApp(SignUpApp());
@@ -10,7 +10,7 @@ class SignUpApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       routes: {
-        '/': (context) => SignUpScreen(),
+        '/': (context) => DynamicScreen(),
         '/welcome': (context) => HomePage(),
       },
     );

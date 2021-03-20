@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:signup_app/PersonalDetails.dart';
+import 'package:signup_app/other%20details.dart';
 
 class HomePage extends StatelessWidget {
   @override
@@ -31,14 +32,15 @@ class HomePage extends StatelessWidget {
                   ),
                 ),
               ),
-              Center(
-                child: SizedBox(
-                  width: 400,
-                  child: Card(
-                    child: UserDetails(),
-                  ),
-                ),
-              ),
+              DynamicScreen(),
+              // Center(
+              //   child: SizedBox(
+              //     width: 400,
+              //     child: Card(
+              //       child: OtherDetails(),
+              //     ),
+              //   ),
+              // ),
             ],
           ),
         ),
